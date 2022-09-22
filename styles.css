@@ -1,0 +1,486 @@
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+/* Assignment 4 To-do */
+
+@import url('https://fonts.googleapis.com/css2?family=Molle&family=Montserrat&display=swap');
+
+:root {
+    --yellow: #F6D64A;
+    --teal: #55BCD5;
+    --purple: #9B26B0;
+    --blue: #499BD2;
+    --dark-gray: #222222;
+    --light-gray: #EAEAEA;
+    --white: #FFFFFF;
+    --black: #000000;
+	--font-primary: 'Montserrat', sans-serif;
+	--font-headings: 'Molle', cursive;
+}
+
+* {
+    font-family: var(--font-primary);
+    line-height: 1.8;
+}
+
+.sr-only {
+    position: absolute;
+    left: -10000px;
+}
+
+body {
+    background-color: var(--white);
+}
+
+header {
+	background-image: linear-gradient(var(--teal), var(--white));
+    display: grid;
+    gap: 0px;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: repeat(3, 100px);
+}
+
+header img {
+    grid-column: 1/2;
+    grid-row: 1/2;
+    padding: 10px;
+    width: 180px;
+}
+
+header h1 {
+    grid-column: 1/3;
+    grid-row: 2/3;
+    font-family: var(--font-headings);
+    font-size: 3.5em;
+    padding-top: 45px;
+    margin-left: 50px;
+}
+
+header p {
+    grid-column: 1/3;
+    grid-row: 3/4;
+    font-family: var(--font-primary);
+    font-size: 1.5em;
+    margin-left: 50px;
+    margin-right: 50px;
+    line-height: 1.3;
+}
+
+header nav {
+    grid-column: 2/3;
+    grid-row: 1/2;
+}
+
+#menu-toggle {
+    display: block;
+    position: absolute;
+    top: 30px;
+    right: 0px;
+    z-index: 1;  
+    -webkit-user-select: none;
+    -moz-user-select: none;
+     -ms-user-select: none;
+         user-select: none;
+    text-transform: uppercase;
+}
+
+#menu-toggle a {
+    text-decoration: none;
+    color: var(--black);
+    -webkit-transition: color .3s ease;
+    -o-transition: color .3s ease;
+    transition: color .3s ease;
+}
+
+#menu-toggle a:hover {
+    color: var(--white);
+}
+
+#menu-toggle input {
+    display: block;
+    width: 30px;
+    height: 30px;
+    position: absolute;
+    top: -7px;
+    left: -5px;  
+    padding: 0;
+    cursor: pointer;  
+    opacity: 0;
+    z-index: 2; 
+    -webkit-callout: none;
+}
+
+#menu-toggle label {
+    position: relative;
+    display: block;
+    z-index: 2;
+    color: var(--black);
+    font-family: var(--font-primary);
+    font-weight: bold;
+    text-align: center;
+    font-size: 1.1em;
+    padding-top: 18px;
+    padding-bottom: 12px;
+    cursor: pointer;
+    background-color: var(--yellow);
+    width: 190px;
+    height: 25px;
+    transition: all .3s ease;
+}
+
+#menu {
+    position: absolute;
+    width: 500px;
+    list-style-type: none;
+    right: -1000%;
+    transition: right .3s ease;
+  }
+  
+#menu li {
+    padding: 25px;
+    font-family: var(--font-primary);
+    font-size: 1.2em;
+    text-align: center;
+    border-bottom: 2px solid var(--black);
+    background-color: var(--teal);
+  }
+  
+  /*
+   * Slide the menu in from right when the input is checked
+   */
+#menu-toggle input:checked ~ #menu {
+    right: 0px;
+}
+
+#menu-toggle input:checked ~ label {
+    color: var(--white);
+    background-color: var(--black);
+    width: 500px;
+}
+
+#intro h2 {
+    font-family: var(--font-headings);
+    font-size: 3em;
+    margin-left: 50px;
+}
+
+#intro p {
+    margin-left: 50px;
+    margin-right: 50px;
+}
+
+#img-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(3, 1fr);
+    align-items: center;
+    row-gap: 20px;
+}
+
+#img-grid img {
+    max-width: fit-content;
+    max-height: fit-content;
+}
+
+picture {
+    margin-top:0;
+    width: 500px;
+}
+
+#plan {
+    background-color: var(--yellow);
+}
+
+#plan div {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(4, 1fr);
+    row-gap: 10px;
+}
+
+#plan h3, #testimonials h3, #about h3, #contact h3 {
+    font-family: var(--font-headings);
+    text-align: left;
+    font-size: 3em;
+    margin-left: 40px;
+}
+
+#plan section {
+    background-color: var(--teal);
+    width: 300px;
+    height: 320px;
+    margin-left: 70px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    border: 5px solid var(--white);
+    border-radius: 10px;
+    padding: 30px;
+}
+
+#plan a, #plan img {
+    margin-left: 20px;
+    margin-top: 25px;
+}
+
+#testimonials div {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(4, 1fr);
+    row-gap: 10px;
+}
+
+
+#testimonials section {
+    margin:5px;
+    border: 5px solid var(--white);
+    border-radius: 10px;
+    text-align: center;
+}
+
+#testimonials h4 {
+    font-family: var(--font-primary);
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 2em;
+}
+
+#testimonials p {
+    line-height: .4em;
+}
+
+#testimonials q {
+    line-height: .4em;
+    font-style: italic;
+    text-align: center;
+}
+
+#testimonials img {
+    margin-top:0px;
+}
+
+#about {
+    background-color: var(--blue);
+}
+
+#about h3 {
+    line-height: 1em;
+    padding: 40px;
+}
+
+#about div {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    gap: 2px;
+}
+
+#about section {
+    margin: 10px;
+}
+
+#about img {
+    padding: 20px;
+}
+
+#about h4 {
+    font-weight: bold;
+    text-transform: uppercase;
+    text-align: center;
+}
+
+#about p {
+    text-align: center;
+}
+
+h3 > span {
+    font-family: var(--font-primary);
+    font-style: italic;
+    font-size: .3em;
+}
+
+form{
+	width: 100%;
+	max-width: 500px;
+	margin: 0 auto;
+	padding:  3em;
+	border: hidden;
+}
+
+input, label, textarea{
+	display: block;
+	width: 370px;
+    padding: 2px;
+}
+
+input:error, select:error, textarea:error{
+	background-color: #c71819;
+}
+
+input[type="radio"]{
+	border: 2px solid var(--purple);
+}
+
+input[type="radio"]{
+	margin-top: 0.4em;
+	outline: none;
+	border: 1px solid #222;
+	border-radius: 25%;
+}
+
+footer{
+	padding: 1em;
+	background-color: var(--light-gray);
+	font-family: sans-serif;
+	text-align: center;
+}
+
+footer a, footer p {
+    font-family: var(--font-primary);
+    display: block;
+    line-height: 2em;
+    text-decoration: none;
+    color: var(--dark-gray);
+}
+
+input [type="submit"]{
+    color: var(--purple);
+}
+
+@media screen and (min-width: 600px) {
+
+    header img {
+        grid-column: 1/2;
+        grid-row: 1/2;
+        padding-right: 0px;
+        margin-left: 10px;
+        width: 250px;
+    }
+
+    header a {
+        width: 50px;
+    }
+    
+    header h1 {
+        grid-column: 2/3;
+        grid-row: 1/2;
+        padding-top: 45px;
+        text-align: left;
+        margin-left: 0px;
+        font-size: 2.4em;
+    }
+    
+    header p {
+        grid-column: 2/3;
+        grid-row: 1/4;
+        margin-top: 100px;
+        margin-left: 0px;
+        font-size: 1.2em;
+    }
+
+    #menu li {
+        top: 100px;
+        right:10px;
+        display: inline;
+        grid-column: 1/3;
+        grid-row: 2/3;
+        visibility: hidden;
+    }
+/*  no idea how to get it out of the dropdown :(   */
+
+
+    #img-grid {
+        margin-left: 50px;
+        margin-right:80px;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 1fr 1fr;
+        align-items: center;
+        row-gap: 15px;
+        column-gap: 15px;
+    }
+
+    #img-grid picture {
+        grid-column: 1/3;
+        margin-bottom: 30px;
+    }
+
+    #plan div {
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 1fr 1fr;
+        align-items: center;
+    }
+
+    #testimonials div {
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: repeat(2, 1fr);
+    }
+
+    #about div {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+        grid-template-rows: 1fr;
+        gap: 2px;
+    }
+
+    #contact h3 {
+        text-align: center;
+    }
+
+
+    footer a, footer p {
+        display: inline;
+        padding-left: 20px;
+    }
+
+}
+
+@media screen and (min-width: 1800px) {
+
+    
+}
